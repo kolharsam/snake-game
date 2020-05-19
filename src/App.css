@@ -34,16 +34,16 @@ body {
   background-color: #0526e3;
 }
 
-.snake-app {
+.game-board {
   position: relative;
   margin: 10px auto;
 }
 
-.snake-app:focus {
+.game-board:focus {
   outline: none;
 }
 
-.snake-app__overlay {
+.game-board__overlay {
   position: absolute;
   left: 0;
   right: 0;

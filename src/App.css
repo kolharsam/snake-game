@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html,
+body {
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%;
+  height: 100vh;
+  background: black;
+}
+
+.grid {
+  box-sizing: content-box;
+  padding: 0;
+  border: 1px solid gray;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+}
+
+.grid-cell {
+  user-select: none;
+}
+.grid-cell--food {
+  background-color: #e69a18;
+}
+.grid-cell--snake {
+  background-color: #0526e3;
+}
+
+.snake-app {
+  position: relative;
+  margin: 10px auto;
+}
+
+.snake-app:focus {
+  outline: none;
+}
+
+.snake-app__overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
   color: white;
+  font-size: 1.2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.heading {
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+button {
+  background-color: rgb(15, 177, 15);
+  color: white;
+  border-radius: 3px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px black;
+  outline: none;
 }

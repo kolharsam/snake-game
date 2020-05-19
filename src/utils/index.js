@@ -11,8 +11,8 @@ function isEqual(arr1, arr2) {
 
   let equals = true;
 
-  for (var i = 0; i < arr1.length; i++) {
-    if (arr1[i] !== arr2[i]) {
+  for (let iter = 0; iter < arr1.length; iter++) {
+    if (arr1[iter] !== arr2[iter]) {
       equals = false;
       break;
     }
@@ -39,7 +39,7 @@ function diff(arr1, arr2) {
  * @returns {number}
  */
 function getRandomNumber(limit) {
-  return Math.round(Math.random() * limit);
+  return Math.floor(Math.random() * limit);
 }
 
 /**
@@ -54,4 +54,29 @@ function getNextFoodSpot(limit) {
   return [x, y];
 }
 
-export { isEqual, diff, getNextFoodSpot };
+/**
+ * Returns true if currentCell is within the grid
+ * @param {number[]} currentCell
+ * @param {number} numCell
+ * @returns {boolean}
+ */
+function isValidCell(currentCell, numCell) {
+  const [x, y] = currentCell;
+
+  return x > -1 && y > -1 && x < numCell && y < numCell;
+}
+
+/**
+ * Returns true if the snake bites into itself
+ * @param {number[][]} snake
+ * @returns {boolean}
+ */
+function bitMe(snake) {
+  return (
+    snake.slice(1).filter((c) => {
+      return isEqual(snake[0], c);
+    }).length !== 0
+  );
+}
+
+export { isEqual, diff, getNextFoodSpot, isValidCell, bitMe };

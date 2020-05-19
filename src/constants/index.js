@@ -11,6 +11,6 @@ const STATUS = {
   OVER: 2,
 };
 
-const CELL_SIZE = 15;
+const CELL_SIZE = 17;
 
 export { DIRECTION, STATUS, CELL_SIZE };

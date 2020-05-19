@@ -1,6 +1,15 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import GridCell from "./GridCell";
 import { render } from "@testing-library/react";
+
+it("renders a cell without crashing", () => {
+  const div = document.createElement("div");
+  ReactDOM.render(
+    <GridCell foodCell={false} snakeCell={true} size={15} />,
+    div
+  );
+});
 
 it("renders a snake cell", () => {
   const { container } = render(

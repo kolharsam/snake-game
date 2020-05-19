@@ -1,6 +1,6 @@
 import React from "react";
 
-// Returns a single Grid Cell
+// Grid Cell for the Grid Component
 function GridCell({ foodCell, snakeCell, size }) {
   let className = "grid-cell";
 

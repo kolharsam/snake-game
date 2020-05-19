@@ -6,7 +6,7 @@ const DIRECTION = {
 };
 
 const STATUS = {
-  NO_PLAY: 0,
+  TO_START: 0,
   PLAYING: 1,
   OVER: 2,
 };

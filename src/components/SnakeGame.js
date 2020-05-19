@@ -1,10 +1,10 @@
 import React, { Component, Fragment, createRef } from "react";
-import { isEqual, diff, getNextFoodSpot, isValidCell, bitMe } from "./utils";
-import { DIRECTION, STATUS, CELL_SIZE } from "./constants";
-import Grid from "./components/Grid";
-import Overlay from "./components/Overlay";
+import { isEqual, diff, getNextFoodSpot, isValidCell, bitMe } from "../utils";
+import { DIRECTION, STATUS, CELL_SIZE } from "../constants";
+import Grid from "./Grid";
+import Overlay from "./Overlay";
 
-import "./App.css";
+import "./styles/snake-game.css";
 
 class SnakeGame extends Component {
   constructor(props) {
@@ -130,10 +130,16 @@ class SnakeGame extends Component {
       }
     }
 
-    this.setState({
-      snake: snake.concat([newSnakeCell]),
-      food: [],
-    });
+    this.setState(
+      {
+        snake: snake.concat([newSnakeCell]),
+        food: [],
+      },
+      () => {
+        // update the score
+        this.props.updateScore();
+      }
+    );
     // set new position for food
     this.moveFood();
   };
@@ -162,13 +168,20 @@ class SnakeGame extends Component {
 
   endGame = () => {
     this.removeTimer();
-    this.setState({
-      status: STATUS.OVER,
-    });
+    this.setState(
+      {
+        status: STATUS.OVER,
+      },
+      () => {
+        // reset score, since game's over
+        this.props.resetScore();
+      }
+    );
   };
 
   componentWillUnmount() {
     this.removeTimer();
+    this.props.resetScore();
   }
 
   render() {
@@ -176,7 +189,7 @@ class SnakeGame extends Component {
   }
 
   renderOverlay = () => {
-    const { status, snake } = this.state;
+    const { status } = this.state;
 
     if (status === STATUS.TO_START) {
       return (
@@ -189,7 +202,6 @@ class SnakeGame extends Component {
     if (status === STATUS.OVER) {
       return (
         <Overlay heading="Game Over!">
-          <div className="mb-1">Your score: {snake.length - 1} </div>
           <button onClick={this.startGame}>Retry?</button>
         </Overlay>
       );

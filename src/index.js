@@ -1,13 +1,5 @@
-import React, { StrictMode } from "react";
-// TODO: Remove StrictMode upon completing project
+import React from "react";
 import ReactDOM from "react-dom";
-import SnakeGame from "./App";
+import Root from "./root";
 
-import "./index.css";
-
-ReactDOM.render(
-  <StrictMode>
-    <SnakeGame size={550} />
-  </StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<Root />, document.getElementById("root"));

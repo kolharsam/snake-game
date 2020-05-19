@@ -1,0 +1,22 @@
+.score-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 55%;
+  justify-content: space-evenly;
+}
+
+.score-row {
+  font-weight: 800;
+  font-size: xx-large;
+  user-select: none;
+  line-height: 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.score-row p {
+  margin-left: 8px;
+}

@@ -5,9 +5,9 @@ function GridCell({ foodCell, snakeCell, size }) {
   let className = "grid-cell";
 
   if (foodCell) {
-    className = "grid-cell grid-cell--food";
+    className += " grid-cell--food";
   } else if (snakeCell) {
-    className = "grid-cell grid-cell--snake";
+    className += " grid-cell--snake";
   }
 
   return (

@@ -1,5 +1,12 @@
 import React, { Component, Fragment, createRef } from "react";
-import { isEqual, diff, getNextFoodSpot, isValidCell, bitMe } from "../utils";
+import {
+  isEqual,
+  diff,
+  getNextFoodSpot,
+  isValidCell,
+  bitMe,
+  isValidKeyPress,
+} from "../utils";
 import { DIRECTION, STATUS, CELL_SIZE } from "../constants";
 import Grid from "./Grid";
 import Overlay from "./Overlay";
@@ -26,10 +33,6 @@ class SnakeGame extends Component {
     this.snakeRef = createRef();
   }
 
-  componentDidMount() {
-    console.log(this.cellSize, this.gridStyle, this.numCells);
-  }
-
   moveFood = () => {
     const food = getNextFoodSpot(this.numCells);
 
@@ -39,6 +42,10 @@ class SnakeGame extends Component {
   setDirection = ({ keyCode }) => {
     // Ignore event if the same key is pressed
     // or if the reverse direction key is pressed.
+
+    if (!isValidKeyPress(keyCode)) {
+      return;
+    }
 
     let changeDirection = true;
 

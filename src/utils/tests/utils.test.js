@@ -1,4 +1,4 @@
-import { isEqual, diff, isValidCell, bitMe } from "./";
+import { isEqual, diff, isValidCell, bitMe, isValidKeyPress } from "..";
 
 test("[1,2,3,4,5,6] and [1,2,3,4,5,6] are equal", () => {
   expect(isEqual([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6])).toBe(true);
@@ -20,4 +20,8 @@ test("[4,5] is present within [[4,5], [4,5], [3,5]], hence the snake bit itself"
       [3, 5],
     ])
   ).toBe(true);
+});
+
+test("39 is valid keyCode in isValidKeyPress", () => {
+  expect(isValidKeyPress(39)).toBe(true);
 });

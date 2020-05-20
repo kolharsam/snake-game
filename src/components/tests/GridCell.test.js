@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import GridCell from "./GridCell";
+import GridCell from "../GridCell";
 import { render } from "@testing-library/react";
 
 it("renders a cell without crashing", () => {

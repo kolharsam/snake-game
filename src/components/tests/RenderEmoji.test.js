@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import RenderEmoji from "./RenderEmoji";
+import RenderEmoji from "../RenderEmoji";
 import { render } from "@testing-library/react";
 
 it("renders a cell without crashing", () => {

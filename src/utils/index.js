@@ -1,3 +1,5 @@
+import { DIRECTION } from "../constants";
+
 /**
  * Returns true if arr1 is equal to arr2
  * @param {number[]} arr1
@@ -79,4 +81,13 @@ function bitMe(snake) {
   );
 }
 
-export { isEqual, diff, getNextFoodSpot, isValidCell, bitMe };
+/**
+ * Returns true keyCode is for the arrow keys
+ * @param {number} keyCode
+ * @returns {boolean}
+ */
+function isValidKeyPress(keyCode) {
+  return Object.values(DIRECTION).some((direction) => keyCode === direction);
+}
+
+export { isEqual, diff, getNextFoodSpot, isValidCell, bitMe, isValidKeyPress };
